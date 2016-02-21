@@ -23,6 +23,7 @@
 
 .tc-videoController:hover .tc-controls {
   display: inline;
+  margin-left: 20px;
 }
 
 .tc-controls {
