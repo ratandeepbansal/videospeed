@@ -3,24 +3,22 @@
   top: 0;
   left: 0;
 
-  background: black;
+  background: #c4302b;
   color: white;
 
-  border-radius: 5px;
   padding: 5px;
-  margin: 10px 10px 10px 15px;
-  line-height: 1.8em;
-
+  line-height: 2em;
+  border-bottom-right-radius: 20px;
   cursor: default;
   z-index: 9999999;
-  opacity: 0.3;
+  opacity: 0.9;
 
-  font-family: Verdana;
-  font-size: 13px;
+  font-family:  Roboto, Helvetica, Arial, sans-serif;
+  font-size: 28px;
 }
 
 .tc-videoController:hover {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .tc-videoController:hover .tc-controls {
@@ -29,26 +27,26 @@
 
 .tc-controls {
   display: none;
-  margin-left: 1em;
 }
 
 .tc-controls button {
+  border-radius: 20px;
   cursor: pointer;
-  color: black !important;
-  background: white !important;
-  font-weight: bold !important;
+  color: white !important;
+  background: black !important;
+  font-weight: normal !important;
   margin: 0 2px !important;
-  border-radius: 5px !important;
-  padding: 3px 8px !important;
-  font-size: 15px !important;
-  line-height: 15px !important;
+  padding: 8px 18px !important;
+  font-size: 28px !important;
+  line-height: 28px !important;
 }
 
+/*
 .tc-videoController button.tc-hideButton {
   margin: 0 2px 0 20px !important;
-  opacity: 0.8;
+  opacity: 0.9;
 }
-
+*/
 /* YouTube player */
 .ytp-hide-info-bar .tc-videoController {
   margin-top: 10px;
@@ -56,7 +54,7 @@
 
 .ytp-autohide .tc-videoController {
   visibility: hidden;
-  transition: opacity .25s cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 1s cubic-bezier(0.4,0,0.2,1);
   opacity: 0;
 }
 
@@ -92,3 +90,4 @@
 .ytp-fullscreen .ytp-webgl-spherical-control {
   top: 100px !important;
 }
+

@@ -4,13 +4,13 @@ chrome.extension.sendMessage({}, function(response) {
     settings: {
       speed: 1.0,          // default 1x
       speedStep: 0.1,      // default 0.1x
-      rewindTime: 10,      // default 10s
-      advanceTime: 10,     // default 10s
+      //rewindTime: 10,      // default 10s
+      //advanceTime: 10,     // default 10s
       resetKeyCode:  82,   // default: R
-      slowerKeyCode: 83,   // default: S
-      fasterKeyCode: 68,   // default: D
-      rewindKeyCode: 90,   // default: Z
-      advanceKeyCode: 88,  // default: X
+      slowerKeyCode: 90,   // default: Z
+      fasterKeyCode: 88,   // default: X
+      //rewindKeyCode: 90,   // default: Z
+      //advanceKeyCode: 88,  // default: X
       rememberSpeed: false // default: false
     }
   };
@@ -19,13 +19,13 @@ chrome.extension.sendMessage({}, function(response) {
   chrome.storage.sync.get(tc.settings, function(storage) {
     tc.settings.speed = Number(storage.speed);
     tc.settings.speedStep = Number(storage.speedStep);
-    tc.settings.rewindTime = Number(storage.rewindTime);
-    tc.settings.advanceTime = Number(storage.advanceTime);
+    //tc.settings.rewindTime = Number(storage.rewindTime);
+    //tc.settings.advanceTime = Number(storage.advanceTime);
     tc.settings.resetKeyCode = Number(storage.resetKeyCode);
-    tc.settings.rewindKeyCode = Number(storage.rewindKeyCode);
+    //tc.settings.rewindKeyCode = Number(storage.rewindKeyCode);
     tc.settings.slowerKeyCode = Number(storage.slowerKeyCode);
     tc.settings.fasterKeyCode = Number(storage.fasterKeyCode);
-    tc.settings.advanceKeyCode = Number(storage.advanceKeyCode);
+    //tc.settings.advanceKeyCode = Number(storage.advanceKeyCode);
     tc.settings.rememberSpeed = Boolean(storage.rememberSpeed);
   });
 
@@ -73,31 +73,35 @@ chrome.extension.sendMessage({}, function(response) {
       var controls = document.createElement('span');
       var fasterButton = document.createElement('button');
       var slowerButton = document.createElement('button');
-      var rewindButton = document.createElement('button');
-      var advanceButton = document.createElement('button');
+      //var rewindButton = document.createElement('button');
+      //var advanceButton = document.createElement('button');
       var hideButton = document.createElement('button');
 
-      rewindButton.innerHTML = '&laquo;';
+      //rewindButton.innerHTML = '&laquo;';
       fasterButton.textContent = '+';
       slowerButton.textContent = '-';
-      advanceButton.innerHTML = '&raquo;';
+      //advanceButton.innerHTML = '&raquo;';
       hideButton.textContent = 'x';
       hideButton.className = 'tc-hideButton';
 
-      controls.appendChild(rewindButton);
+      //controls.appendChild(rewindButton);
       controls.appendChild(slowerButton);
       controls.appendChild(fasterButton);
-      controls.appendChild(advanceButton);
-      controls.appendChild(hideButton);
+      //controls.appendChild(advanceButton);
+      //controls.appendChild(hideButton);
 
       container.appendChild(speedIndicator);
       container.appendChild(controls);
 
       container.classList.add('tc-videoController');
       controls.classList.add('tc-controls');
+      speedIndicator.classList.add('tc-indicator');
 
       fragment.appendChild(container);
       this.video.parentElement.insertBefore(fragment, this.video);
+
+
+
 
       var speed = parseFloat(tc.settings.speed).toFixed(2);
       speedIndicator.textContent = speed;
@@ -235,8 +239,8 @@ chrome.extension.sendMessage({}, function(response) {
           controllerAnimation.cancel();
         }
         controllerAnimation = controller.animate([
-          {opacity: 0.3},
-          {opacity: 0.3},
+          {opacity: 0.8},
+          {opacity: 0.4},
           {opacity: 0.0},
         ], {
           duration: 3000,
@@ -252,3 +256,7 @@ chrome.extension.sendMessage({}, function(response) {
 
   initializeWhenReady(document);
 });
+
+
+
+
